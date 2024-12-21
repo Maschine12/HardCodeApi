@@ -1,7 +1,9 @@
 "use client"
 import React, { useState } from 'react';
 import NavItem from './ui/navItem';
-import { Menu } from 'lucide-react';
+import { Menu , Bolt, UserIcon, LogOut} from 'lucide-react';
+import NavDropdownItem from './ui/navDropdownItem';
+
 function NavBar() {
     const [isDropdownOpen, setDropdownOpen] = useState(false);
     const [isMenuOpen, setMenuOpen] = useState(false);
@@ -9,17 +11,18 @@ function NavBar() {
     const toggleDropdown = () => setDropdownOpen(!isDropdownOpen);
     const toggleMenu = () => setMenuOpen(!isMenuOpen);
 
+
     return (
         <nav className="bg-white border-gray-200 dark:bg-gray-900">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 {/* Logo */}
                 <a className="flex items-center space-x-3 rtl:space-x-reverse">
-                    <img src="https://flowbite.com/docs/images/logo.svg" className="h-8" alt="Flowbite Logo" />
-                    <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Empresa</span>
+                    <img src="/tecnico1.svg" className="w-20 h-20" alt="Desarrollo de Software" />
+                    <span className="self-center text-3xl font-semibold whitespace-nowrap dark:text-white">Empresa</span>
                 </a>
-                {/* User menu and mobile menu button */}
+
                 <div className="flex items-center space-x-3 rtl:space-x-reverse md:order-2">
-                    {/* User Dropdown */}
+                    {/* Dropdown */}
                     <div className="relative">
                         <button
                             type="button"
@@ -27,83 +30,33 @@ function NavBar() {
                             onClick={toggleDropdown}
                         >
                             <span className="sr-only">Open user menu</span>
-                            <img className="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="user" />
+                            <img className="w-14 h-14 rounded-full" src="https://github.com/shadcn.png" alt="user" />
                         </button>
 
                         {isDropdownOpen && (
-                            <div className="absolute right-0 z-50 mt-2 w-48 bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600">
+                            <div className="absolute right-0 z-50 mt-2 w-70 bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600">
                                 <div className="px-4 py-3">
-                                    <p className="text-sm text-gray-900 dark:text-white">Bonnie Green</p>
-                                    <p className="text-sm text-gray-500 truncate dark:text-gray-400">name@flowbite.com</p>
+                                    <p className="text-lg text-gray-900 dark:text-white">Bonnie Green</p>
+                                    <p className="text-lg text-gray-500 truncate dark:text-gray-400">name@flowbite.com</p>
                                 </div>
                                 <ul className="py-2">
-                                    <li>
-                                        <a
-                                            href="#"
-                                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200"
-                                        >
-                                            Dashboard
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="#"
-                                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200"
-                                        >
-                                            Settings
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="#"
-                                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200"
-                                        >
-                                            Earnings
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="#"
-                                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200"
-                                        >
-                                            Sign out
-                                        </a>
-                                    </li>
+                                    <NavDropdownItem href={'/'} icon={<Bolt />} text={'Configuración'} />
+                                    <NavDropdownItem href={'/'} icon={<UserIcon />} text={'Datos'} />
+                                    <NavDropdownItem href={'/'} icon={<LogOut />} text={'Salir'} />
                                 </ul>
                             </div>
                         )}
                     </div>
 
-                    {/* Mobile Menu Button */}
-                    {/* <button
-                        type="button"
-                        className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                        onClick={toggleMenu}
-                    >
-                        <span className="sr-only">Open main menu</span>
-                        <svg
-                            className="w-5 h-5"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 17 14"
-                        >
-                            <path
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M1 1h15M1 7h15M1 13h15"
-                            />
-                        </svg>
-                    </button> */}
+                    {/* Boton Movil */}
                     <button
                         type="button"
                         className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                         onClick={toggleMenu}
                     >
-                        <span className="sr-only">Open main menu</span>
-                        <Menu className="w-5 h-5" />
+                        <Menu className="w-8 h-8" />
                     </button>
+
                 </div>
 
                 {/* Navbar Links */}
