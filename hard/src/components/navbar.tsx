@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import NavItem from './ui/navItem';
-import { Menu , Bolt, UserIcon, LogOut} from 'lucide-react';
+import { Menu, Bolt, UserIcon, LogOut } from 'lucide-react';
 import NavDropdownItem from './ui/navDropdownItem';
 
 function NavBar() {
@@ -13,31 +13,29 @@ function NavBar() {
 
 
     return (
-        <nav className="bg-white border-gray-200 dark:bg-gray-900">
+        <nav className="fixed bg-[#f7f0f0]">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 {/* Logo */}
                 <a className="flex items-center space-x-3 rtl:space-x-reverse">
                     <img src="/tecnico1.svg" className="w-20 h-20" alt="Desarrollo de Software" />
-                    <span className="self-center text-3xl font-semibold whitespace-nowrap dark:text-white">Empresa</span>
+                    <span className="self-center text-2xl font-semibold whitespace-nowrap">Empresa</span>
                 </a>
-
                 <div className="flex items-center space-x-3 rtl:space-x-reverse md:order-2">
                     {/* Dropdown */}
                     <div className="relative">
                         <button
                             type="button"
-                            className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                            className="flex text-sm bg-[#f95f19] rounded-full focus:ring-4 focus:ring-gray-600"
                             onClick={toggleDropdown}
                         >
                             <span className="sr-only">Open user menu</span>
-                            <img className="w-14 h-14 rounded-full" src="https://github.com/shadcn.png" alt="user" />
+                            <img className="w-12 h-12 rounded-full" src="https://github.com/shadcn.png" alt="user" />
                         </button>
-
                         {isDropdownOpen && (
-                            <div className="absolute right-0 z-50 mt-2 w-70 bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600">
+                            <div className="absolute right-0 z-50 mt-2 w-70 bg-gray-600 divide-y divide-gray-100 rounded-lg shadow">
                                 <div className="px-4 py-3">
-                                    <p className="text-lg text-gray-900 dark:text-white">Bonnie Green</p>
-                                    <p className="text-lg text-gray-500 truncate dark:text-gray-400">name@flowbite.com</p>
+                                    <p className="text-xl text-center text-gray-900 dark:text-white">Parker</p>
+                                    <p className="text-lg text-gray-500 truncate dark:text-gray-400">example@example.com</p>
                                 </div>
                                 <ul className="py-2">
                                     <NavDropdownItem href={'/'} icon={<Bolt />} text={'Configuración'} />
@@ -47,7 +45,6 @@ function NavBar() {
                             </div>
                         )}
                     </div>
-
                     {/* Boton Movil */}
                     <button
                         type="button"
@@ -56,15 +53,13 @@ function NavBar() {
                     >
                         <Menu className="w-8 h-8" />
                     </button>
-
                 </div>
-
                 {/* Navbar Links */}
                 <div
                     className={`${isMenuOpen ? 'block' : 'hidden'
                         } items-center justify-between w-full md:flex md:w-auto md:order-1`}
                 >
-                    <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <ul className="flex flex-col  font-medium p-4 md:p-0 mt-4 border rounded-lg  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 ">
                         <NavItem href={'/'} text={'Inicio'} />
                         <NavItem href={'/'} text={'Sobre Nosotros'} />
                         <NavItem href={'/'} text={'Precios'} />
